@@ -1,17 +1,9 @@
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-
-function changeSlide(){
-
-    slides[index].classList.remove("active");
-
-    index++;
-
-    if(index >= slides.length){
-        index = 0;
+// script.js
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.top-bar');
+    if (window.scrollY > 50) {
+        header.style.padding = '5px 0'; // Thu nhỏ khi cuộn
+    } else {
+        header.style.padding = '15px 0';
     }
-
-    slides[index].classList.add("active");
-}
-
-setInterval(changeSlide, 3000);
+});

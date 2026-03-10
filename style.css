@@ -2,15 +2,6 @@ body{
     margin:0;
     font-family: Arial;
 }
-
-/* Logo */
-.logo{
-    width:120px;
-    position:absolute;
-    top:10px;
-    left:20px;
-}
-
 /* Khung ảnh nền */
 .slideshow{
     width:100%;
@@ -33,4 +24,134 @@ body{
 /* Ảnh đang hiển thị */
 .slide.active{
     opacity:1;
+}
+.header{
+    position:fixed;   /* logo đứng yên */
+    top:20px;
+    left: 50%;
+    transform: translateX(-50%);  /* căn giữa theo chiều ngang */
+    display:flex;
+    align-items:center;
+    z-index:10;       /* nằm trên ảnh nền */
+}
+
+.title{
+color:white;
+font-size:28px;
+font-weight:bold;
+}
+text h1{
+    color: black;
+    font-size: 30px;
+    margin:0 ;
+}
+text h2{
+    color: black;
+    font-size: 24px;
+    margin:0 ;
+}
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #0045A0; /* Màu xanh đặc trưng */
+    color: white;
+    padding: 15px 0;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.search-box {
+    display: flex;
+    flex: 0 1 500px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.search-box input {
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    outline: none;
+}
+
+.search-box button {
+    background: #002D6B;
+    border: none;
+    color: white;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.header-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.hotline, .user-account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.hotline i, .user-account i {
+    font-size: 24px;
+}
+
+.cart {
+    position: relative;
+    font-size: 24px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: red;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* Nav Bar */
+.main-nav {
+    background-color: #E9F1FF;
+    padding: 10px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+}
+
+.main-nav li {
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.main-nav li:hover {
+    color: #0045A0;
 }
