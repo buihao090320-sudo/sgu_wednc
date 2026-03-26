@@ -1,0 +1,1 @@
+<?php // prevent direct access ?>
