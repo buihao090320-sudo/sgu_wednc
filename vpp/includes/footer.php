@@ -3,7 +3,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="<?= $base ?? '' ?>assets/img/logo.png" alt="Logo" style="height:38px;filter:brightness(0) invert(1);opacity:.8">
+        <img src="<?= $base ?? '' ?>assets/img/logo.png" alt="Logo" style="height: 45px; object-fit: contain;">
         <div>
           <div style="font-weight:700">Văn phòng Phẩm Sài Gòn</div>
           <div style="opacity:.6;font-size:.8rem">Chất lượng – Uy tín – Giá tốt</div>
