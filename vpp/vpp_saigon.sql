@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS san_pham (
     ten          VARCHAR(200) NOT NULL,
     mo_ta        TEXT,
     don_vi_tinh  VARCHAR(30)  DEFAULT 'cái',
-    icon         VARCHAR(10)  DEFAULT '📦',
+    image VARCHAR(255) DEFAULT NULL,
     gia_nhap     DECIMAL(15,2) NOT NULL DEFAULT 0 COMMENT 'giá nhập bình quân hiện tại',
     ti_le_loi_nhuan DECIMAL(5,2) NOT NULL DEFAULT 20 COMMENT 'tỉ lệ % lợi nhuận',
     so_luong_ton INT NOT NULL DEFAULT 0,
@@ -164,29 +164,29 @@ INSERT INTO nguoi_dung (ho_ten, email, mat_khau, so_dien_thoai, dia_chi, quan_hu
 VALUES ('Nguyễn Văn An', 'an@gmail.com', MD5('123456'), '0901234567', '45 Lê Lợi', 'Quận 1', 'Hồ Chí Minh', 'khach_hang');
 
 -- Sản phẩm mẫu (danh_muc_id 1-8)
-INSERT INTO san_pham (danh_muc_id, ten, mo_ta, don_vi_tinh, icon, gia_nhap, ti_le_loi_nhuan, so_luong_ton) VALUES
-(1,'Bút bi Thiên Long TL-027','Bút bi nắp đậy mực xanh, ngòi 0.7mm. Viết đều mực, không gián đoạn.','cái','✏️',2200,36,500),
-(1,'Bút bi Pentel BK77','Bút bi Pentel ngòi 0.7mm, mực xanh. Mực chảy mượt, không bị nhòe.','cái','🖊️',6500,38,300),
-(1,'Bút gel Pilot G2 0.5mm','Bút gel cao cấp Pilot G2, ngòi siêu mịn 0.5mm. Mực gel không nhòe.','cái','🖋️',12000,33,200),
-(1,'Bút dạ quang Stabilo Boss','Bút highlight Stabilo Boss. Mực nước không lem, đầu vát 2-5mm.','cái','🖍️',9500,42,350),
-(1,'Bút chì gỗ Staedtler HB','Bút chì gỗ cao cấp Staedtler HB, lõi 2mm chống gãy. Hộp 12 cây.','hộp','✏️',22000,30,400),
-(2,'Vở kẻ ngang Hồng Hà 200 trang','Vở học sinh kẻ ngang 200 trang, giấy trắng 70gsm, bìa cứng màu sắc.','cuốn','📒',18000,33,600),
-(2,'Sổ tay Moleskine Classic A5','Sổ tay cao cấp Moleskine bìa cứng, 240 trang giấy acid-free, bookmark.','cuốn','📔',185000,25,80),
-(2,'Tập 100 tờ A4 Hòa Bình','Tập vở A4 kẻ ô ly 100 tờ, giấy trắng, bìa cứng màu.','cuốn','📓',12000,33,400),
-(3,'Màu chì Faber-Castell 24 màu','Hộp màu chì cao cấp 24 màu, lõi 3.8mm mềm mượt, không gãy.','hộp','🎨',85000,28,150),
-(3,'Màu nước Winsor & Newton 12 màu','Bộ màu nước professional 12 màu bánh. Màu trong, độ hòa tan tốt.','bộ','🖌️',155000,22,60),
-(4,'Kẹp bướm KANGARO 25mm','Hộp 12 kẹp bướm binder clip 25mm bằng thép mạ kẽm.','hộp','🗂️',12000,50,800),
-(4,'Ghim dập DELI 24/6 (1000 cái)','Hộp 1000 ghim dập tiêu chuẩn 24/6, thép mạ đồng.','hộp','📎',8500,47,1000),
-(4,'Máy dập ghim Maped Essentials','Máy dập ghim 25 tờ, dùng ghim 24/6, tay cầm ergonomic.','cái','🖇️',45000,38,100),
-(4,'Giấy ghi chú Post-it 3x3" 12 tập','Bộ 12 tập giấy ghi chú Post-it 3M, mỗi tập 100 tờ.','bộ','📝',55000,45,200),
-(5,'Giấy in Double A A4 80gsm','Giấy in Double A tiêu chuẩn A4, 80gsm, 500 tờ/ream.','ream','📄',62000,27,500),
-(5,'Giấy A4 70gsm IKI (500 tờ)','Giấy in IKI 70gsm A4 kinh tế, 500 tờ/ream.','ream','📋',48000,25,800),
-(6,'Thước kẻ nhựa trong 30cm DELI','Thước kẻ nhựa trong suốt 30cm, vạch khắc rõ ràng.','cái','📏',4500,56,500),
-(6,'Compa vẽ tròn MAPED Essential','Compa học sinh Maped, chân thép cứng, bán kính tối đa 16cm.','cái','📐',22000,45,200),
-(7,'Băng keo trong Scotch 3M 18mm','Băng dính trong suốt Scotch 3M, 18mm x 33m. Không vàng.','cuộn','🔌',18000,44,400),
-(7,'Keo UHU stic 8.2g','Keo dán khô UHU Stick 8.2g dạng bôi, không nhòe giấy.','cái','🖊️',14500,38,300),
-(8,'Bìa lá A4 trong PVC (100 cái)','Túi bìa lá nhựa PVC trong suốt A4, dày 0.1mm.','hộp','📁',28000,43,300),
-(8,'Hộp đựng hồ sơ A4 DELI','Hộp đựng hồ sơ A4, có khóa cài, nắp đậy kín.','cái','🗃️',38000,37,150);
+INSERT INTO san_pham (danh_muc_id, ten, mo_ta, don_vi_tinh, image, gia_nhap, ti_le_loi_nhuan, so_luong_ton) VALUES
+(1,'Bút bi Thiên Long TL-027','Bút bi nắp đậy mực xanh, ngòi 0.7mm. Viết đều mực, không gián đoạn.','cái','san-pham1.png',2200,36,500),
+(1,'Bút bi Pentel BK77','Bút bi Pentel ngòi 0.7mm, mực xanh. Mực chảy mượt, không bị nhòe.','cái','san-pham2.png',6500,38,300),
+(1,'Bút gel Pilot G2 0.5mm','Bút gel cao cấp Pilot G2, ngòi siêu mịn 0.5mm. Mực gel không nhòe.','cái','san-pham3.png',12000,33,200),
+(1,'Bút dạ quang Stabilo Boss','Bút highlight Stabilo Boss. Mực nước không lem, đầu vát 2-5mm.','cái','san-pham4.png',9500,42,350),
+(1,'Bút chì gỗ Staedtler HB','Bút chì gỗ cao cấp Staedtler HB, lõi 2mm chống gãy. Hộp 12 cây.','hộp','san-pham5.png',22000,30,400),
+(2,'Vở kẻ ngang Hồng Hà 200 trang','Vở học sinh kẻ ngang 200 trang, giấy trắng 70gsm, bìa cứng màu sắc.','cuốn','san-pham6.png',18000,33,600),
+(2,'Sổ tay Moleskine Classic A5','Sổ tay cao cấp Moleskine bìa cứng, 240 trang giấy acid-free, bookmark.','cuốn','san-pham7.png',185000,25,80),
+(2,'Tập 100 tờ A4 Hòa Bình','Tập vở A4 kẻ ô ly 100 tờ, giấy trắng, bìa cứng màu.','cuốn','san-pham8.png',12000,33,400),
+(3,'Màu chì Faber-Castell 24 màu','Hộp màu chì cao cấp 24 màu, lõi 3.8mm mềm mượt, không gãy.','hộp','san-pham9.png',85000,28,150),
+(3,'Màu nước Winsor & Newton 12 màu','Bộ màu nước professional 12 màu bánh. Màu trong, độ hòa tan tốt.','bộ','san-pham10.png',155000,22,60),
+(4,'Kẹp bướm KANGARO 25mm','Hộp 12 kẹp bướm binder clip 25mm bằng thép mạ kẽm.','hộp','san-pham11.png',12000,50,800),
+(4,'Ghim dập DELI 24/6 (1000 cái)','Hộp 1000 ghim dập tiêu chuẩn 24/6, thép mạ đồng.','hộp','san-pham12.png',8500,47,1000),
+(4,'Máy dập ghim Maped Essentials','Máy dập ghim 25 tờ, dùng ghim 24/6, tay cầm ergonomic.','cái','san-pham13.png',45000,38,100),
+(4,'Giấy ghi chú Post-it 3x3" 12 tập','Bộ 12 tập giấy ghi chú Post-it 3M, mỗi tập 100 tờ.','bộ','san-pham14.png',55000,45,200),
+(5,'Giấy in Double A A4 80gsm','Giấy in Double A tiêu chuẩn A4, 80gsm, 500 tờ/ream.','ream','san-pham15.png',62000,27,500),
+(5,'Giấy A4 70gsm IKI (500 tờ)','Giấy in IKI 70gsm A4 kinh tế, 500 tờ/ream.','ream','san-pham16.png',48000,25,800),
+(6,'Thước kẻ nhựa trong 30cm DELI','Thước kẻ nhựa trong suốt 30cm, vạch khắc rõ ràng.','cái','san-pham17.png',4500,56,500),
+(6,'Compa vẽ tròn MAPED Essential','Compa học sinh Maped, chân thép cứng, bán kính tối đa 16cm.','cái','san-pham18.png',22000,45,200),
+(7,'Băng keo trong Scotch 3M 18mm','Băng dính trong suốt Scotch 3M, 18mm x 33m. Không vàng.','cuộn','san-pham19.png',18000,44,400),
+(7,'Keo UHU stic 8.2g','Keo dán khô UHU Stick 8.2g dạng bôi, không nhòe giấy.','cái','san-pham20.png',14500,38,300),
+(8,'Bìa lá A4 trong PVC (100 cái)','Túi bìa lá nhựa PVC trong suốt A4, dày 0.1mm.','hộp','san-pham21.png',28000,43,300),
+(8,'Hộp đựng hồ sơ A4 DELI','Hộp đựng hồ sơ A4, có khóa cài, nắp đậy kín.','cái','san-pham22.png',38000,37,150);
 
 -- Thông số kỹ thuật mẫu
 INSERT INTO sp_thong_so (sp_id, ten_thong_so, gia_tri) VALUES
